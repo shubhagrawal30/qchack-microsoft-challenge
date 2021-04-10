@@ -21,7 +21,16 @@ namespace QCHack.Task1 {
     // will be 1/√3|001⟩ ⊗ |1⟩ + 1/√3|100⟩ ⊗ |0⟩ + 1/√3|111⟩ ⊗ |0⟩.
     //
     operation Task1_DivisibleByFour (inputs : Qubit[], output : Qubit) : Unit is Adj+Ctl {
-        // ...
+        // Algorithm Idea
+	// Number only divisible by 4 iff two least significant bits are 0
+	// apply X on these two bits (if they were 0, now they are 1)
+	// CCNOT with the output as target
+	// apply X on the two bits again to return to original state
+	X(inputs[0]);
+	X(inputs[1]);
+	CCNOT(inputs[0], inputs[1], output);
+	X(inputs[0]);
+	X(inputs[1]);
     }
 }
 
