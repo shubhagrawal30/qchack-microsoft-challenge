@@ -37,6 +37,40 @@ namespace QCHack.Task4 {
     // Hint: Remember that you can examine the inputs and the intermediary results of your computations
     //       using Message function for classical values and DumpMachine for quantum states.
     //
+    
+    // helper function: ValidTriangle - task2
+    operation ValidTriangle (inputs : Qubit[], output : Qubit) : Unit is Adj+Ctl {
+        for i in 0 .. (Length(inputs)-1) {
+            X(inputs[i]);
+            Controlled X(inputs, output);
+            X(inputs[i]);
+        }
+        X(inputs[0]);
+        X(inputs[1]);
+        Controlled X(inputs, output);
+        X(inputs[0]);
+        
+        X(inputs[2]);
+        Controlled X(inputs, output);
+        X(inputs[1]);
+
+        X(inputs[0]);
+        Controlled X(inputs, output);
+        X(inputs[0]);
+        X(inputs[2]);
+    }
+    
+
+    // helper function: GetTriangle
+    function GetTriangle(edges : (Int, Int)[]) : (Int, Int, Int)[] {
+        let n = Length(edges);
+        mutable count = 0;
+        
+
+    }
+
+
+
     operation Task4_TriangleFreeColoringOracle (
         V : Int, 
         edges : (Int, Int)[], 
