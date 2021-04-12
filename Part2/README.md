@@ -1,4 +1,4 @@
-# CS101-Fast-Hamiltonian-Project
+# Fast-Hamiltonian-Project
 
 This project aims to analyze the complexity of two methods of hamiltonian compilation: First Order Trotter Suzuki and qDRIFT
 
